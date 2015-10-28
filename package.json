@@ -1,0 +1,12 @@
+{
+	"name": "video-uploader",
+	"version": "0.0.0",
+	"description": "Uploads videos to Amazon",
+	"main": "app.js",
+	"author": "Jordan Cotter",
+	"dependencies": {
+	  	"busboy": "^0.2.9",
+		"express": "~4.7.2",
+		"body-parser": "~1.5.2"
+		}
+	}
