@@ -3,14 +3,76 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"/>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script type="text/javascript" src="app/app.js"></script>
-</head>
 
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script type="text/javascript" src="libs/angular-dialog-service/dist/dialogs.js"></script>
+    <script type="text/javascript" src="libs/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/button.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <link rel="stylesheet" href="css/master.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- These Styles Handle the 1-offs -->
+    <style>
+        .attachment-zone{
+            padding:3rem;
+            border-radius:5px;
+            margin-bottom:3rem;
+            color:#636363;
+            font-size:1.9375rem;
+            font-weight:600;
+            text-align:center;
+            line-height:3rem;
+            background:#f0f0f0;
+            border:1px dashed #d4d4d4;
+        }
+
+        input[type="file"]{
+            border:none;
+            outline:none;
+            box-shadow:none;
+            text-indent:0;
+        }
+
+        .loading{
+            position:absolute;
+            z-index: 2000;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            display:block;
+            width:100%;
+            height: 100%;
+            background:rgba(0,0,0,.65);
+        }
+
+    </style>
+</head>
 <body ng-app="videoUploader" ng-controller="MainController">
-    <input type="file" accept="video/*" onchange="getFiles(this)"/>
-    <button ng-click="saveVideos()">save</button>
+<header class="fixed" role="banner">
+    <nav role="navigation">
+        <div class="brand">
+            <h1>Video Uploader</h1>
+        </div>
+        <div class="menu">
+            &nbsp;
+        </div>
+    </nav>
+</header>
+    <main>
+        <section class="block no-border">
+            <article class="grid">
+                <div class="grid-cell">
+                    <input type="file" accept="video/*" onchange="getFiles(this)" placeholder="Click here to upload your video."/>
+                    <div class="attachment-zone" ng-model="fileNames" id="attachments">
+                        Drag File Here
+                    </div>
+                    <button id="saveButton" autocomplete="off" data-loading-text="uploading..." class="btn action" ng-click="saveVideos()"><i class="material-icons">file_upload</i> Upload Video</button>
+                </div>
+            </article>
+        </section>
+    </main>
 </body>
 </html>
