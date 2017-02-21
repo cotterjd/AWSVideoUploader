@@ -1,4 +1,4 @@
 # AWSVideoUploader
 
 uploads videos to Amazon.
-Edit index.js with your database and aws credentials.
+Edit config/index.js with your database and aws credentials.
